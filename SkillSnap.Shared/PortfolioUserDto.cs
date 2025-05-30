@@ -4,7 +4,7 @@ namespace SkillSnap.Shared
 {
     public record PortfolioUserDto
     {
-        public int Id { get; init; }
+        public string Id { get; init; }
 
         [Required]
         [StringLength(100)]

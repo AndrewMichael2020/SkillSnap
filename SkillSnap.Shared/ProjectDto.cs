@@ -17,6 +17,6 @@ namespace SkillSnap.Shared
         public string ImageUrl { get; init; }
 
         [Required]
-        public int PortfolioUserId { get; init; }
+        public string PortfolioUserId { get; init; }
     }
 }

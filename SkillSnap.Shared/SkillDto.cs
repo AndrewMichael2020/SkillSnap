@@ -14,6 +14,6 @@ namespace SkillSnap.Shared
         public string Level { get; init; }
 
         [Required]
-        public int PortfolioUserId { get; init; }
+        public string PortfolioUserId { get; init; }
     }
 }

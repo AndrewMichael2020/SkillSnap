@@ -1,0 +1,49 @@
+@page "/admin"
+@using SkillSnap.Shared
+
+<h2>Admin Panel</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>User ID</th>
+            <th>Email</th>
+            <th>Full Name</th>
+            <th># Projects</th>
+            <th># Skills</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Users)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.Email</td>
+                <td>@user.Name</td>
+                <td>@user.ProjectCount</td>
+                <td>@user.SkillCount</td>
+                <td>
+                    <button class="btn btn-link">View Portfolio</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    private List<AdminUserSummary> Users = new List<AdminUserSummary>
+    {
+        new AdminUserSummary { Id = 1, Email = "admin@skillsnap.com", Name = "Default Admin", ProjectCount = 0, SkillCount = 0 },
+        new AdminUserSummary { Id = 2, Email = "chad@synergy.com", Name = "Chad McSynergy", ProjectCount = 20, SkillCount = 15 }
+    };
+
+    public class AdminUserSummary
+    {
+        public int Id { get; set; }
+        public string Email { get; set; }
+        public string Name { get; set; }
+        public int ProjectCount { get; set; }
+        public int SkillCount { get; set; }
+    }
+}

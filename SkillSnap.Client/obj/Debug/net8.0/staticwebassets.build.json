@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "z7T+fQL8aFtNHY+USc08F3cCcap66v8j/9mwFi5RGak=",
+  "Hash": "u3Zfu/5NG3Ghu8sZDQhGvpLDygoP/WZsW6t2n3mY8hc=",
   "Source": "SkillSnap.Client",
   "BasePath": "/",
   "Mode": "Root",
@@ -7995,25 +7995,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/index.html"
-    },
-    {
-      "Identity": "/workspaces/SkillSnap/SkillSnap.Client/wwwroot/sample-data/weather.json",
-      "SourceId": "SkillSnap.Client",
-      "SourceType": "Discovered",
-      "ContentRoot": "/workspaces/SkillSnap/SkillSnap.Client/wwwroot/",
-      "BasePath": "/",
-      "RelativePath": "sample-data/weather.json",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/sample-data/weather.json"
     }
   ]
 }

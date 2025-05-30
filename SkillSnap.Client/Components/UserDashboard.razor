@@ -1,0 +1,20 @@
+@page "/dashboard"
+@using SkillSnap.Shared
+
+<h2>My Portfolio Dashboard</h2>
+
+<section>
+    <ProfileCard />
+</section>
+
+<section>
+    <h3>My Projects</h3>
+    <button class="btn btn-primary mb-2">+ Add Project</button>
+    <ProjectList />
+</section>
+
+<section>
+    <h3>My Skills</h3>
+    <button class="btn btn-primary mb-2">+ Add Skill</button>
+    <SkillTags />
+</section>
