@@ -1,0 +1,17 @@
+@using SkillSnap.Shared
+
+<div class="profile-card">
+    <img src="@User.ProfileImageUrl" alt="Profile Image" class="profile-image" />
+    <h2>@User.Name</h2>
+    <p>@User.Bio</p>
+</div>
+
+@code {
+    private PortfolioUserDto User = new PortfolioUserDto
+    {
+        Id = 1,
+        Name = "Chad McSynergy",
+        Bio = "Serial entrepreneur, coffee enthusiast, and professional buzzword generator.",
+        ProfileImageUrl = "https://example.com/images/chad.jpg"
+    };
+}

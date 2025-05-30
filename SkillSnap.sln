@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillSnap.Api", "SkillSnap.Api\SkillSnap.Api.csproj", "{1D5554BA-7F5E-4ECE-8911-A41888100F8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillSnap.Client", "SkillSnap.Client\SkillSnap.Client.csproj", "{C30817A8-23D9-454B-AE65-B6708ABA82B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillSnap.Shared", "SkillSnap.Shared\SkillSnap.Shared.csproj", "{F706672F-D6BD-40FF-81D1-05EBBA31E3E3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D5554BA-7F5E-4ECE-8911-A41888100F8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D5554BA-7F5E-4ECE-8911-A41888100F8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D5554BA-7F5E-4ECE-8911-A41888100F8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D5554BA-7F5E-4ECE-8911-A41888100F8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C30817A8-23D9-454B-AE65-B6708ABA82B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C30817A8-23D9-454B-AE65-B6708ABA82B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C30817A8-23D9-454B-AE65-B6708ABA82B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C30817A8-23D9-454B-AE65-B6708ABA82B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F706672F-D6BD-40FF-81D1-05EBBA31E3E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F706672F-D6BD-40FF-81D1-05EBBA31E3E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F706672F-D6BD-40FF-81D1-05EBBA31E3E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F706672F-D6BD-40FF-81D1-05EBBA31E3E3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,41 @@
+@using SkillSnap.Shared
+
+@if (Projects.Any())
+{
+    <ul class="project-list">
+        @foreach (var project in Projects)
+        {
+            <li class="project-item">
+                <h3>@project.Title</h3>
+                <p>@project.Description</p>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No projects to display.</p>
+}
+
+@code {
+    private List<ProjectDto> Projects = new List<ProjectDto>
+    {
+        new ProjectDto
+        {
+            Id = 1,
+            Title = "Project Synergy 1: The Pivotening",
+            Description = "A disruptive solution to optimize blockchain-driven, cloud-based, AI-powered business paradigms. (Phase 1)",
+            ImageUrl = "",
+            PortfolioUserId = 1
+        },
+        new ProjectDto
+        {
+            Id = 2,
+            Title = "Project Synergy 2: The Pivotening",
+            Description = "A disruptive solution to optimize blockchain-driven, cloud-based, AI-powered business paradigms. (Phase 2)",
+            ImageUrl = "",
+            PortfolioUserId = 1
+        }
+        // ...add more sample projects as needed...
+    };
+}

@@ -1,0 +1,34 @@
+@using SkillSnap.Shared
+
+<div class="skill-tags">
+    @foreach (var skill in Skills)
+    {
+        <span class="skill-tag">@skill.Name (@skill.Level)</span>
+    }
+</div>
+
+<style>
+.skill-tags {
+    margin-top: 1rem;
+}
+.skill-tag {
+    display: inline-block;
+    background-color: #e0e0e0;
+    color: #333;
+    border-radius: 16px;
+    padding: 0.3em 1em;
+    margin: 0.2em;
+    font-size: 0.95em;
+    font-weight: 500;
+}
+</style>
+
+@code {
+    private List<SkillDto> Skills = new List<SkillDto>
+    {
+        new SkillDto { Id = 1, Name = "Synergy Maximization", Level = "Expert", PortfolioUserId = 1 },
+        new SkillDto { Id = 2, Name = "Coffee-Driven Coding", Level = "Guru", PortfolioUserId = 1 },
+        new SkillDto { Id = 3, Name = "Blockchain Buzzwording", Level = "Ninja", PortfolioUserId = 1 }
+        // ...add more sample skills as needed...
+    };
+}
