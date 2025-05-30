@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SkillSnap.Client")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ca70e92d1eecec91bd7f3ab7b00b65d3ba8bb20c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+63121e71621fe0e023ed9f3fc79b28e027367283")]
 [assembly: System.Reflection.AssemblyProductAttribute("SkillSnap.Client")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SkillSnap.Client")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

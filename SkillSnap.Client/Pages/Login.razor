@@ -1,13 +1,23 @@
 @page "/login"
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.JSInterop
+@using Microsoft.AspNetCore.Components.Authorization
+@inject SkillSnap.Client.Services.IHttpClientService HttpClientService
+@inject NavigationManager Navigation
+@inject IJSRuntime JS
 
 <h3>Login</h3>
 
 <EditForm Model="loginModel" OnValidSubmit="HandleLogin">
     <DataAnnotationsValidator />
     <ValidationSummary />
+    @if (!string.IsNullOrEmpty(message))
+    {
+        <div class="alert @messageClass">@message</div>
+    }
     <div class="mb-3">
-        <label for="username" class="form-label">Username</label>
-        <InputText id="username" class="form-control" @bind-Value="loginModel.Username" />
+        <label for="email" class="form-label">Email</label>
+        <InputText id="email" class="form-control" @bind-Value="loginModel.Email" />
     </div>
     <div class="mb-3">
         <label for="password" class="form-label">Password</label>
@@ -18,13 +28,57 @@
 
 @code {
     private LoginModel loginModel = new();
+    private string? message;
+    private string messageClass = "alert-danger";
+
     private async Task HandleLogin()
     {
-        // TODO: Wire up login logic
+        message = null;
+        try
+        {
+            var response = await HttpClientService.PostAsync("api/auth/login", loginModel);
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                // Expecting a JSON object with a token property, e.g. { "token": "..." }
+                var token = System.Text.Json.JsonDocument.Parse(json).RootElement.GetProperty("token").GetString();
+                if (!string.IsNullOrEmpty(token))
+                {
+                    await JS.InvokeVoidAsync("localStorage.setItem", "authToken", token);
+                    // Notify authentication state provider
+                    if (AuthStateProvider is SkillSnap.Client.Services.CustomAuthStateProvider customAuth)
+                    {
+                        customAuth.NotifyUserAuthentication(token);
+                    }
+                    message = "Login successful! Redirecting...";
+                    messageClass = "alert-success";
+                    await Task.Delay(1000);
+                    Navigation.NavigateTo("/");
+                }
+                else
+                {
+                    message = "Login failed: No token returned.";
+                    messageClass = "alert-danger";
+                }
+            }
+            else
+            {
+                var error = await response.Content.ReadAsStringAsync();
+                message = $"Login failed: {error}";
+                messageClass = "alert-danger";
+            }
+        }
+        catch (Exception ex)
+        {
+            message = $"Error: {ex.Message}";
+            messageClass = "alert-danger";
+        }
     }
     public class LoginModel
     {
-        public string Username { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
     }
+    [CascadingParameter] private Task<AuthenticationState> authenticationStateTask { get; set; }
+    [Inject] private AuthenticationStateProvider AuthStateProvider { get; set; }
 }

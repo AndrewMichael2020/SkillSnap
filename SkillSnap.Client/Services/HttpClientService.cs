@@ -19,6 +19,11 @@ namespace SkillSnap.Client.Services
             var url = $"{ApiRoutes.Users}/{id}";
             return await _httpClient.GetFromJsonAsync<PortfolioUserDto>(url);
         }
+
+        public async Task<HttpResponseMessage> PostAsync<T>(string url, T data)
+        {
+            return await _httpClient.PostAsJsonAsync(url, data);
+        }
         // Add more methods as needed
     }
 }
