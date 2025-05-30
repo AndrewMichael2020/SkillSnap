@@ -13,8 +13,8 @@
         <div class="alert @messageClass">@message</div>
     }
     <div class="mb-3">
-        <label for="username" class="form-label">Username</label>
-        <InputText id="username" class="form-control" @bind-Value="registerModel.Username" />
+        <label for="email" class="form-label">Email</label>
+        <InputText id="email" class="form-control" @bind-Value="registerModel.Email" />
     </div>
     <div class="mb-3">
         <label for="password" class="form-label">Password</label>
@@ -23,6 +23,18 @@
     <div class="mb-3">
         <label for="confirmPassword" class="form-label">Confirm Password</label>
         <InputText id="confirmPassword" type="password" class="form-control" @bind-Value="registerModel.ConfirmPassword" />
+    </div>
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <InputText id="name" class="form-control" @bind-Value="registerModel.Name" />
+    </div>
+    <div class="mb-3">
+        <label for="bio" class="form-label">Bio</label>
+        <InputTextArea id="bio" class="form-control" @bind-Value="registerModel.Bio" />
+    </div>
+    <div class="mb-3">
+        <label for="profileImageUrl" class="form-label">Profile Image URL</label>
+        <InputText id="profileImageUrl" class="form-control" @bind-Value="registerModel.ProfileImageUrl" />
     </div>
     <button type="submit" class="btn btn-primary">Register</button>
 </EditForm>
@@ -43,7 +55,7 @@
         }
         try
         {
-            var response = await HttpClientService.PostAsync("api/auth/register", registerModel);
+            var response = await HttpClientService.PostAsync("api/Auth/register", registerModel);
             if (response.IsSuccessStatusCode)
             {
                 message = "Registration successful! Redirecting to login...";
@@ -66,8 +78,11 @@
     }
     public class RegisterModel
     {
-        public string Username { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
         public string ConfirmPassword { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
+        public string Bio { get; set; } = string.Empty;
+        public string ProfileImageUrl { get; set; } = string.Empty;
     }
 }

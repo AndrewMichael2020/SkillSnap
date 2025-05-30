@@ -36,7 +36,7 @@
         message = null;
         try
         {
-            var response = await HttpClientService.PostAsync("api/auth/login", loginModel);
+            var response = await HttpClientService.PostAsync("api/Auth/login", loginModel);
             if (response.IsSuccessStatusCode)
             {
                 var json = await response.Content.ReadAsStringAsync();

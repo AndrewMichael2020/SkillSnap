@@ -29,7 +29,18 @@ namespace SkillSnap.Api.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterDto dto)
         {
-            var user = new PortfolioUser { UserName = dto.Email, Email = dto.Email, FullName = dto.FullName };
+            if (string.IsNullOrEmpty(dto.Password))
+            {
+                return BadRequest("Password cannot be null or empty.");
+            }
+
+            var user = new PortfolioUser {
+                UserName = dto.Email,
+                Email = dto.Email,
+                FullName = dto.FullName,
+                Bio = dto.Bio,
+                ProfileImageUrl = dto.ProfileImageUrl
+            };
             var result = await _userManager.CreateAsync(user, dto.Password);
             if (!result.Succeeded)
                 return BadRequest(result.Errors);
@@ -75,9 +86,11 @@ namespace SkillSnap.Api.Controllers
 
     public class RegisterDto
     {
-        public string FullName { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
+        public string? FullName { get; set; }
+        public string? Email { get; set; }
+        public string? Password { get; set; }
+        public string? Bio { get; set; }
+        public string? ProfileImageUrl { get; set; }
     }
     public class LoginDto
     {
